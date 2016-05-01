@@ -1,5 +1,5 @@
 target
-SnepsUtils.iml
+*.iml
 .idea
 out
 m2
