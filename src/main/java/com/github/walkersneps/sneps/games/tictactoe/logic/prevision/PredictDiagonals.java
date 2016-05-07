@@ -64,7 +64,7 @@ class PredictDiagonals {
 
         for (byte j = 0; j < 3; j++) {
             for (int k = j + 1; k < 3; k++) {
-                if (k != j && fd[k] == fd[j] && k!=0) { //oh, we noticed someone could perform a tris!
+                if (k != j && fd[k] == fd[j] && fd[k]!=0) { //oh, we noticed someone could perform a tris!
                     byte position = 10;
                     byte whereToBlock = 10;
 
@@ -101,7 +101,7 @@ class PredictDiagonals {
 
         for (byte j = 0; j < 3; j++) {
             for (int k = j + 1; k < 3; k++) {
-                if (k != j && bd[k] == bd[j] && k!=0) { //oh, we noticed someone could perform a tris!
+                if (k != j && bd[k] == bd[j] && bd[k]!=0) { //oh, we noticed someone could perform a tris!
                     byte position = 10;
                     byte whereToBlock = 10;
 

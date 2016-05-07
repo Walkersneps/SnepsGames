@@ -108,7 +108,7 @@ class PredictRows {
 
         for (byte j = 3; j < 6; j++) {
             for (int k = j+1; k < 6; k++) {
-                if (k!=j && sr[k] == sr[j] && k!=0) { //oh, we noticed someone could perform a tris!
+                if (k!=j && sr[k] == sr[j] && sr[k]!=0) { //oh, we noticed someone could perform a tris!
                     byte almostWinner = sr[k]; //let's see who - crosses or circles?
                     for (byte aSr : sr) { //let's find the spot where we can put our mark and stop him!
                         if (aSr != almostWinner) {
@@ -133,7 +133,7 @@ class PredictRows {
 
         for (byte j = 6; j < 9; j++) {
             for (int k = j+1; k < 9; k++) {
-                if (k!=j && tr[k] == tr[j] && k!=0) { //oh, we noticed someone could perform a tris!
+                if (k!=j && tr[k] == tr[j] && tr[k]!=0) { //oh, we noticed someone could perform a tris!
                     byte almostWinner = tr[k]; //let's see who - crosses or circles?
                     for (byte aTr : tr) { //let's find the spot where we can put our mark and stop him!
                         if (aTr != almostWinner) {

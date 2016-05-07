@@ -66,7 +66,7 @@ class PredictColumns {
 
         for (byte j = 0; j < 3; j++) {
             for (int k = j+1; k < 3; k++) {
-                if (k!=j && fc[k] == fc[j] && k!=0) { //oh, we noticed someone could perform a tris!
+                if (k!=j && fc[k] == fc[j] && fc[k]!=0) { //oh, we noticed someone could perform a tris!
                     byte position = 10;
                     byte whereToBlock = 10;
 
@@ -103,7 +103,7 @@ class PredictColumns {
 
         for (byte j = 0; j < 3; j++) {
             for (int k = j+1; k < 3; k++) {
-                if (k!=j && sc[k] == sc[j] && k!=0) { //oh, we noticed someone could perform a tris!
+                if (k!=j && sc[k] == sc[j] && sc[k]!=0) { //oh, we noticed someone could perform a tris!
                     byte position = 10;
                     byte whereToBlock = 10;
 
@@ -139,7 +139,7 @@ class PredictColumns {
 
         for (byte j = 0; j < 3; j++) {
             for (int k = j+1; k < 3; k++) {
-                if (k!=j && tc[k] == tc[j] && k!=0) { //oh, we noticed someone could perform a tris!
+                if (k!=j && tc[k] == tc[j] && tc[k]!=0) { //oh, we noticed someone could perform a tris!
                     byte position = 10;
                     byte whereToBlock = 10;
 
