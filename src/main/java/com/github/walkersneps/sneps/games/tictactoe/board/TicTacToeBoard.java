@@ -31,6 +31,8 @@ public class TicTacToeBoard {
 
     private byte[] board;
 
+    private boolean matchEnded;
+
     private static final Aliases u = new Aliases();
 
     //constructor
@@ -39,7 +41,9 @@ public class TicTacToeBoard {
      */
     public TicTacToeBoard () {
         board = new byte[9];
+        this.matchEnded = false;
     }
+
 
 
     /**
@@ -93,6 +97,8 @@ public class TicTacToeBoard {
     }
 
 
+
+    //checkers
     /**
      * Check if a space is empty
      *
@@ -115,6 +121,9 @@ public class TicTacToeBoard {
         return board[position] != 0;
     }
 
+    public boolean isMatchEnded () {
+        return matchEnded;
+    }
 
 
 
@@ -150,17 +159,131 @@ public class TicTacToeBoard {
         return thirdRow;
     }
 
+    public byte[] getFirstColumn () {
+        byte[] firstColumn = new byte[3];
+
+        firstColumn[0] = board[0];
+        firstColumn[1] = board[3];
+        firstColumn[2] = board[6];
+
+        return firstColumn;
+    }
+
+    public byte[] getSecondColumn () {
+        byte[] secondColumn = new byte[3];
+
+        secondColumn[0] = board[1];
+        secondColumn[1] = board[4];
+        secondColumn[2] = board[7];
+
+        return secondColumn;
+    }
+
+    public byte[] getThirdColumn () {
+        byte[] thirdColumn = new byte[3];
+
+        thirdColumn[0] = board[2];
+        thirdColumn[1] = board[5];
+        thirdColumn[2] = board[8];
+
+        return thirdColumn;
+    }
+
+    public byte[] getBackslashDiagonal () {
+        byte[] backslashDiagonal = new byte[3];
+
+        backslashDiagonal[0] = board[0];
+        backslashDiagonal[1] = board[4];
+        backslashDiagonal[2] = board[8];
+
+        return backslashDiagonal;
+    }
+
+    public byte[] getForwardslashDiagonal () {
+        byte[] forwardslashDiagonal = new byte[3];
+
+        forwardslashDiagonal[0] = board[2];
+        forwardslashDiagonal[1] = board [4];
+        forwardslashDiagonal[2] = board[6];
+
+        return forwardslashDiagonal;
+    }
+
+
+    public String[] getNiceBoard () {
+        String[] nb = new String[5];
+
+        //prepare first line
+        StringBuilder firstLine = new StringBuilder();
+        for (int i=0; i<3; i++) {
+            firstLine.append(this.getFirstRow()[i]);
+            if (i != 2) {
+                firstLine.append("|");
+            }
+        }
+
+        nb[0] = firstLine.toString(); //add first line to the array
+        nb[1] = "-|-|-";
+
+        //prepare second line
+        StringBuilder secondLine = new StringBuilder();
+        for (int i=0; i<3; i++) {
+            secondLine.append(this.getSecondRow()[i]);
+            if (i != 2) {
+                secondLine.append("|");
+            }
+        }
+
+        nb[2] = secondLine.toString(); //add second line to the array
+        nb[3] = "-|-|-";
+
+        //prepare third line
+        StringBuilder thirdLine = new StringBuilder();
+        for (int i=0; i<3; i++) {
+            thirdLine.append(this.getThirdRow()[i]);
+            if (i != 2) {
+                thirdLine.append("|");
+            }
+        }
+
+        nb[4] = thirdLine.toString(); //add third line to the array
+
+        return nb;
+    }
+
 
     //setters
     public void setBoard (byte[] board) {
         this.board = board;
     }
 
-
-
-
-
+    public void setMatchEnded (boolean matchEnded) {
+        this.matchEnded = matchEnded;
+    }
 
 
 
 } //end of class
+
+    /*
+     *  0|1|2
+     *  -|-|-
+     *  3|4|5
+     *  -|-|-
+     *  6|7|8
+     */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
