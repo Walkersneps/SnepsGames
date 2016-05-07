@@ -1,0 +1,12 @@
+language: java
+
+jdk:
+  - oraclejdk8
+  - oraclejdk7
+
+notifications:
+  email:
+    recipients:
+      - walkersneps@gmail.com
+    on_success: change
+    on_failure: change
