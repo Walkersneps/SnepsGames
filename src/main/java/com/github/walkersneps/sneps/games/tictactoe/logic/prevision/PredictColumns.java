@@ -15,6 +15,8 @@ import com.github.walkersneps.sneps.games.tictactoe.logic.PossibleStrike;
  */
 class PredictColumns {
 
+    private static byte whoCouldWin;
+
 
     /**
      * Check if the enemy can win on next turn by completing a column
@@ -27,21 +29,21 @@ class PredictColumns {
             PossibleStrike ps = new PossibleStrike();
             ps.setHowToStop(predictFirstColumn(board));
             ps.setIAmInDanger(true);
-            ps.setWhoCouldWin(board.getBoard()[predictFirstColumn(board)]);
+            ps.setWhoCouldWin(whoCouldWin);
 
             return ps;
         } else if (predictSecondColumn(board) < 9) { //possible strike on first row
             PossibleStrike ps = new PossibleStrike();
             ps.setHowToStop(predictSecondColumn(board));
             ps.setIAmInDanger(true);
-            ps.setWhoCouldWin(board.getBoard()[predictSecondColumn(board)]);
+            ps.setWhoCouldWin(whoCouldWin);
 
             return ps;
         } else if (predictThirdColumn(board) < 9) { //possible strike on first row
             PossibleStrike ps = new PossibleStrike();
             ps.setHowToStop(predictThirdColumn(board));
             ps.setIAmInDanger(true);
-            ps.setWhoCouldWin(board.getBoard()[predictThirdColumn(board)]);
+            ps.setWhoCouldWin(whoCouldWin);
 
             return ps;
         } else {
@@ -67,6 +69,7 @@ class PredictColumns {
         for (byte j = 0; j < 3; j++) {
             for (int k = j+1; k < 3; k++) {
                 if (k!=j && fc[k] == fc[j] && fc[k]!=0) { //oh, we noticed someone could perform a tris!
+                    whoCouldWin = fc[k];
                     byte position = 10;
                     byte whereToBlock = 10;
 
@@ -104,6 +107,7 @@ class PredictColumns {
         for (byte j = 0; j < 3; j++) {
             for (int k = j+1; k < 3; k++) {
                 if (k!=j && sc[k] == sc[j] && sc[k]!=0) { //oh, we noticed someone could perform a tris!
+                    whoCouldWin = sc[k];
                     byte position = 10;
                     byte whereToBlock = 10;
 
@@ -140,6 +144,7 @@ class PredictColumns {
         for (byte j = 0; j < 3; j++) {
             for (int k = j+1; k < 3; k++) {
                 if (k!=j && tc[k] == tc[j] && tc[k]!=0) { //oh, we noticed someone could perform a tris!
+                    whoCouldWin = tc[k];
                     byte position = 10;
                     byte whereToBlock = 10;
 
