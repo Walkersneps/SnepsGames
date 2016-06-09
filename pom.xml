@@ -76,9 +76,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.walkersneps.sneps.utils</groupId>
+            <groupId>tk.sneps.utils</groupId>
             <artifactId>snepsutils</artifactId>
-            <version>0.1.12-SNAPSHOT</version>
+            <version>0.1.14</version>
         </dependency>
 
 
